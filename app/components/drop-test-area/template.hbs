@@ -1,0 +1,19 @@
+<h1>Available</h1>
+<div class="available">
+  {{#each model as |tile|}}
+    {{#drag-tile content=tile.id}}
+      <span>{{tile.name}}</span>
+    {{/drag-tile}}
+  {{/each}}
+</div>
+
+<h1>Selected</h1>
+<div class="selected">
+  {{#drag-dropzone dropped="dropped"}}
+    <ul>
+      {{#each selectedTiles.tiles as |tile|}}
+        <li>{{tile.name}}  <button {{action "removeTile" tile}}>Remove</button></li>
+      {{/each}}
+    </ul>
+  {{/drag-dropzone}}
+</div>
